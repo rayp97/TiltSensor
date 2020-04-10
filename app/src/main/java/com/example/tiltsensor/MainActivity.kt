@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
 
         tiltView = TiltView(this)
-        setContentView(R.layout.activity_main)
+        setContentView(tiltView)
 
     }
 
@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 "MainActivity",
                 "onSensorChanged: x :" + "${event.values[0]}, y : ${event.values[1]}, z : ${event.values[2]}"
             )
+            tiltView.onSensorEvent(event)
         }
     }
 }

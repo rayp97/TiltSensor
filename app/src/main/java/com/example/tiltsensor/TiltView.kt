@@ -29,7 +29,8 @@ class TiltView(context: Context?) : View(context) {
 
     override fun onDraw(canvas: Canvas?) {
         canvas?.drawCircle(cX, cY, 100f, blackPaint)
-        canvas?.drawCircle(cX, cY, 100f, greenPaint)
+        canvas?.drawCircle(xCoord + cX, yCoord + cY, 100f, greenPaint)
+        // canvas?.drawCircle(cX, cY, 100f, greenPaint)
 
         canvas?.drawLine(cX - 20, cY, cX + 20, cY, blackPaint)
         canvas?.drawLine(cX, cY - 20, cX, cY + 20, blackPaint)
