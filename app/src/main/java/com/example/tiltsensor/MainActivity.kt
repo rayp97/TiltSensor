@@ -1,6 +1,5 @@
 package com.example.tiltsensor
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
@@ -18,12 +17,16 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    private lateinit var tiltView: TiltView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) //화면이 꺼지지 않도록
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE //화면 가로모드 고정
         super.onCreate(savedInstanceState)
+
+        tiltView = TiltView(this)
         setContentView(R.layout.activity_main)
+
     }
 
     //액티비티 동작시만 센서 사용
